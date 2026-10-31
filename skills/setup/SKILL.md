@@ -19,8 +19,8 @@ absent, go to step 2. If present, tell the user what will move into the data fol
 `feedback.log` and, if it is a git repository, its history. Ask for a yes.
 
 On yes:
-- with git in the old folder: `git clone --no-hardlinks ~/.claude/toolbox "<data>"`, then
-  `git -C "<data>" remote remove origin`; remove the engine files the plugin now carries
+- with git in the old folder: `git -c core.autocrlf=false clone --no-hardlinks ~/.claude/toolbox "<data>"`, then
+  `git -C "<data>" config core.autocrlf false` and `git -C "<data>" remote remove origin`; remove the engine files the plugin now carries
   (`git -C "<data>" rm -r -q --ignore-unmatch hooks rules.md skill`) and commit `migrate: from toolbox`;
 - without git: copy `index.md` and `tools/` into `<data>`;
 - in both cases copy `feedback.log` (it is not tracked) and run `bash "<scripts>/check.sh"`.
@@ -37,7 +37,8 @@ Then clean up the old setup, one confirmation per item, showing each item first:
 
 Skip what the import already created. Create `<data>/tools/` and `<data>/state/`, an empty `<data>/index.md`, and
 `<data>/.gitignore` with the lines `feedback.log` and `state/`. If `git` is available and `<data>/.git` is
-missing: `git -C "<data>" init -q` and commit `init`. Without git, tell the user in one line that with git the
+missing: `git -C "<data>" init -q`, `git -C "<data>" config core.autocrlf false` (keeps the files LF on Windows),
+and commit `init`. Without git, tell the user in one line that with git the
 catalog would keep a history of its edits.
 
 ## 3. Forgotten tools
