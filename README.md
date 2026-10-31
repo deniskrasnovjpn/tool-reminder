@@ -58,7 +58,7 @@ You can run it again any time with `/tool-reminder:setup`.
 | `/tool-reminder:remove <slug>` | Removes an entry |
 | `/tool-reminder:edit <slug>` | Opens an entry in your text editor; say "done" when finished |
 | `/tool-reminder:revision` | Compares the catalog with installed tools and the collected feedback |
-| `/tool-reminder:tips` | Turns the catalog into spinner tips that replace the built-in ones |
+| `/tool-reminder:tips` | Turns the catalog into spinner tips, next to or instead of the built-in ones |
 | `/tool-reminder:setup` | Runs setup |
 
 A plain request works too: "add rclone to the catalog".
@@ -69,15 +69,17 @@ Entries are written in the language you are talking to Claude in.
 
 `/tool-reminder:tips` makes one tip per catalog entry from its command and its index line, such as
 `/teach — <the index line of teach>`, and shows you the list. For a tip worded differently from the index line,
-add a line `Tip: <text>` to the entry's `tools/<slug>.md`; the command takes that line as it is. Once you approve it, the tips go into `spinnerTipsOverride` in
-`~/.claude/settings.json`, and Claude Code shows them while it works, in place of its own tips.
+add a line `Tip: <text>` to the entry's `tools/<slug>.md`; the command takes that line as it is.
+
+The command also asks whether Claude Code's built-in tips stay in the rotation or are turned off. Turning them off
+hides Claude Code's plugin suggestions too. Once you approve the list, the tips go into `spinnerTipsOverride` in
+`~/.claude/settings.json`, and Claude Code shows them while it works.
 
 Entries with nothing to type in Claude Code, such as tools that only work in the Claude app, get no tip. Tips you
 added yourself stay: the plugin's tips have ids starting with `tool-reminder.`, and running the command again
 replaces only those. After you add, remove or edit an entry, Claude offers to refresh the tips.
 
-Changes show up the next time Claude Code starts. To see the built-in tips again next to yours, set
-`excludeDefault` to `false` in `spinnerTipsOverride`.
+Changes show up the next time Claude Code starts.
 
 ## Settings
 

@@ -11,7 +11,7 @@
     {
       "name": "tool-reminder",
       "description": "Reminds Claude to suggest tools from your personal catalog when they fit the task at hand.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "source": "./",
       "category": "productivity",
       "homepage": "https://github.com/deniskrasnovjpn/tool-reminder"

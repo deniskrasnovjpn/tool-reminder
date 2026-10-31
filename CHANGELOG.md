@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.1
+
+- `tips` asks whether the built-in tips stay in the rotation or are turned off, instead of always turning them
+  off.
+
 ## 0.2.0
 
 - New command `tips`: turns the catalog into Claude Code spinner tips, each a command plus its index line or the

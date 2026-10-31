@@ -1,6 +1,6 @@
 ---
 name: tips
-description: Turn the tool-reminder catalog into Claude Code spinner tips that replace the built-in ones. Use when the user asks for tips from the catalog or to refresh them.
+description: Turn the tool-reminder catalog into Claude Code spinner tips, next to or instead of the built-in ones. Use when the user asks for tips from the catalog or to refresh them.
 ---
 
 # Spinner tips from the catalog
@@ -31,14 +31,17 @@ user's own.
    - Skip an entry that has nothing to type or press: no command and no key combination, or a tool that works
      only outside Claude Code (for example only in the Claude app). Note each skipped slug and the reason.
 3. **Show** the tips as a numbered list with their length in characters, then the skipped slugs, then the change
-   to settings: the catalog tips replaced, the user's own tips kept, the built-in tips turned off (Claude Code's
-   plugin suggestions among them). Point out any of the user's own entries that launch the same command as a new
-   tip and offer to remove them. Write only after a yes; on corrections, show the list again.
-4. **Write** `spinnerTipsOverride` in the settings file, touching nothing else in the file:
+   to settings: the catalog tips replaced, the user's own tips kept. Point out any of the user's own entries that
+   launch the same command as a new tip and offer to remove them.
+4. **Ask** about the built-in tips: keep them in the rotation next to these, or turn them off and show only the
+   user's tips. Name the current state (`excludeDefault` is `true`: off; `false` or unset: on), and that turning
+   them off also hides Claude Code's plugin suggestions. Write only after the user has answered this and said
+   yes to the list; on corrections, show the list again.
+5. **Write** `spinnerTipsOverride` in the settings file, touching nothing else in the file:
    - remove the entries whose `id` starts with `tool-reminder.`, and the user's entries they agreed to remove;
    - insert the new tip objects at the start of `tips`, in index order; every other entry stays as it is;
-   - set `excludeDefault` to `true`; `label` and `tipsFile` stay as they are.
-5. **Verify**: the settings file parses as JSON (`jq empty <file>`, or `node -e` with `JSON.parse`), and `tips`
+   - set `excludeDefault` to `true` for built-in tips off, `false` for on; `label` and `tipsFile` stay as they
+     are.
+6. **Verify**: the settings file parses as JSON (`jq empty <file>`, or `node -e` with `JSON.parse`), and `tips`
    holds exactly the new catalog tips plus the user's kept entries. Tell the user the tips appear at the next
-   start of Claude Code, and that setting `excludeDefault` to `false` brings the built-in tips back alongside
-   them.
+   start of Claude Code.
