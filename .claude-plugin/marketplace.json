@@ -1,0 +1,20 @@
+{
+  "name": "tool-reminder",
+  "owner": {
+    "name": "Denis Krasnov",
+    "url": "https://github.com/deniskrasnovjpn"
+  },
+  "metadata": {
+    "description": "Marketplace hosting the tool-reminder plugin."
+  },
+  "plugins": [
+    {
+      "name": "tool-reminder",
+      "description": "Reminds Claude to suggest tools from your personal catalog when they fit the task at hand.",
+      "version": "0.1.0",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://github.com/deniskrasnovjpn/tool-reminder"
+    }
+  ]
+}

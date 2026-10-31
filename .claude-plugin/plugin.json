@@ -1,0 +1,27 @@
+{
+  "name": "tool-reminder",
+  "version": "0.1.0",
+  "description": "Reminds Claude to suggest tools from your personal catalog when they fit the task at hand.",
+  "author": {
+    "name": "Denis Krasnov",
+    "url": "https://github.com/deniskrasnovjpn"
+  },
+  "homepage": "https://github.com/deniskrasnovjpn/tool-reminder",
+  "repository": "https://github.com/deniskrasnovjpn/tool-reminder",
+  "license": "MIT",
+  "keywords": ["tools", "reminder", "catalog", "skills", "productivity"],
+  "userConfig": {
+    "data_dir": {
+      "type": "directory",
+      "title": "Data folder",
+      "description": "Folder for your catalog, feedback log and state. Leave empty to use ~/.claude/tool-reminder.",
+      "required": false
+    },
+    "feedback_questions": {
+      "type": "boolean",
+      "title": "Usefulness questions",
+      "description": "Debug feature: after a suggestion, ask whether it was useful and log the answer.",
+      "default": false
+    }
+  }
+}
