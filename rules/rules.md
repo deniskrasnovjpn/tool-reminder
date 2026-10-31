@@ -41,4 +41,8 @@ The catalog changes only after the user says yes. When the user mentions a tool 
 tool from the index has stopped working, offer it in one line: "Add X to the catalog?" or "Remove X from the
 catalog?" (in the language of the conversation). On yes, follow the skill tool-reminder:add or
 tool-reminder:remove. The user can also ask for any catalog action in plain words; follow the matching
-tool-reminder skill (setup, index, add, remove, edit, revision).
+tool-reminder skill (setup, index, add, remove, edit, revision, tips).
+
+After an entry is added, removed or edited, check the user settings
+(`${CLAUDE_CONFIG_DIR:-~/.claude}/settings.json`) for tips with ids starting `tool-reminder.`; if there are any,
+offer in one line to refresh them with tool-reminder:tips.

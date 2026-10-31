@@ -58,11 +58,25 @@ You can run it again any time with `/tool-reminder:setup`.
 | `/tool-reminder:remove <slug>` | Removes an entry |
 | `/tool-reminder:edit <slug>` | Opens an entry in your text editor; say "done" when finished |
 | `/tool-reminder:revision` | Compares the catalog with installed tools and the collected feedback |
+| `/tool-reminder:tips` | Turns the catalog into spinner tips that replace the built-in ones |
 | `/tool-reminder:setup` | Runs setup |
 
 A plain request works too: "add rclone to the catalog".
 
 Entries are written in the language you are talking to Claude in.
+
+## Spinner tips
+
+`/tool-reminder:tips` writes one short tip per catalog entry, such as `/teach — a course on a new topic over several
+sessions`, and shows you the list. Once you approve it, the tips go into `spinnerTipsOverride` in
+`~/.claude/settings.json`, and Claude Code shows them while it works, in place of its own tips.
+
+Entries with nothing to type in Claude Code, such as tools that only work in the Claude app, get no tip. Tips you
+added yourself stay: the plugin's tips have ids starting with `tool-reminder.`, and running the command again
+replaces only those. After you add, remove or edit an entry, Claude offers to refresh the tips.
+
+Changes show up the next time Claude Code starts. To see the built-in tips again next to yours, set
+`excludeDefault` to `false` in `spinnerTipsOverride`.
 
 ## Settings
 

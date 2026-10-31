@@ -1,6 +1,6 @@
 {
   "name": "tool-reminder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Reminds Claude to suggest tools from your personal catalog when they fit the task at hand.",
   "author": {
     "name": "Denis Krasnov",
