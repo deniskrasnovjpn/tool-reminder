@@ -53,5 +53,5 @@ catalog would keep a history of its edits.
 Tell the user briefly, in a few lines:
 - the commands: `/tool-reminder:index`, `:add`, `:remove`, `:edit`, `:revision`, `:setup`; plain requests work too;
 - usefulness questions (a debug feature) are off; they are switched on with the plugin option `feedback_questions`
-  (`claude plugin configure tool-reminder`), which you can do for them on request;
-- the whole plugin is switched off with `claude plugin disable tool-reminder`.
+  (`claude plugin configure tool-reminder@tool-reminder`), which you can do for them on request;
+- the whole plugin is switched off with `claude plugin disable tool-reminder@tool-reminder`.

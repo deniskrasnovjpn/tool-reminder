@@ -71,13 +71,13 @@ Entries are written in the language you are talking to Claude in.
 | `data_dir` | `~/.claude/tool-reminder` | Where your catalog lives |
 | `feedback_questions` | off | Debug feature: after a suggestion, Claude asks whether it was useful and logs the answer |
 
-To change them, run `claude plugin configure tool-reminder`, or ask Claude to do it.
+To change them, run `claude plugin configure tool-reminder@tool-reminder`, or ask Claude to do it.
 
 ## Turning it off
 
 ```
-claude plugin disable tool-reminder
-claude plugin enable tool-reminder
+claude plugin disable tool-reminder@tool-reminder
+claude plugin enable tool-reminder@tool-reminder
 ```
 
 ## Your data
