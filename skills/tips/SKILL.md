@@ -16,13 +16,17 @@ A tip from the catalog is the object `{ "id": "tool-reminder.<slug>", "text": "<
 user's own.
 
 1. **Read** `<data>/index.md` and every `<data>/tools/<slug>.md`.
-2. **Build one tip per entry**, shaped `<launch> — <description>`:
-   - _launch_ is what the user types or presses, taken from the entry's run line: a slash command or a key
-     combination, bare, without placeholder arguments (`/teach`, `/doctor prompt-audit`). A skill without a
-     command of its own launches by its bare name, `/<skill>`: Claude Code runs a plugin skill by its bare name
-     unless another command already has it.
-   - _description_ is the entry's index line after `<slug>: `, copied verbatim. The index line is the single
-     source of the wording: to change a tip, the user edits the index line.
+2. **Build one tip per entry**:
+   - An entry whose `tools/<slug>.md` has a line starting `Tip:` gets the rest of that line, copied verbatim.
+     The label stays `Tip` in every language. This line is where a tip's wording lives when it differs from the
+     index line, which stays written for matching tools to tasks.
+   - Any other entry gets `<launch> — <description>`. _Launch_ is what the user types or presses, taken from the
+     entry's run line: a slash command or a key combination (`/teach`, `/doctor prompt-audit`). A skill without
+     a command of its own launches by its bare name, `/<skill>`: Claude Code runs a plugin skill by its bare
+     name unless another command already has it. _Description_ is the entry's index line after `<slug>: `,
+     copied verbatim.
+   - A tip is one line: Claude Code collapses line breaks into spaces. Several commands in one tip are separated
+     with ` · `, as in the built-in tips.
    - Claude Code accepts a tip of up to 500 characters; report any tip over that limit and its slug.
    - Skip an entry that has nothing to type or press: no command and no key combination, or a tool that works
      only outside Claude Code (for example only in the Claude app). Note each skipped slug and the reason.

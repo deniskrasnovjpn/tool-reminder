@@ -32,8 +32,9 @@ Tool: `$ARGUMENTS` (if empty, ask which tool).
    Commands and flags: <what matters for using it>
    Caveats: <limits, common mistakes>
    Source: <documentation URL>
+   Tip: <optional: the spinner tip, when it should read differently from "<command> — <index line>">
    ```
-   Translate the labels (What, When, …) into the language of the entry.
+   Translate the labels (What, When, …) into the language of the entry; `Tip` stays as it is.
 6. **Show** the user the index line and the whole file. Write them only after a yes.
 7. **Check and commit.** Append the line to `index.md`, write the file, run `bash "<scripts>/check.sh"` until it
    prints `OK`. If the data folder is a git repository: `git -C "<data>" add index.md tools` and commit with the
