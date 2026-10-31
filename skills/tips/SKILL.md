@@ -16,15 +16,16 @@ A tip from the catalog is the object `{ "id": "tool-reminder.<slug>", "text": "<
 user's own.
 
 1. **Read** `<data>/index.md` and every `<data>/tools/<slug>.md`.
-2. **Write one tip per entry**, shaped `<launch> — <what it does>`:
-   - _launch_ is what the user types, taken from the entry's run line: a slash command or a key combination,
-     bare, without placeholder arguments (`/teach`, `/doctor prompt-audit`). A skill without a command of its
-     own launches by its bare name, `/<skill>`: Claude Code runs a plugin skill by its bare name unless another
-     command already has it.
-   - _what it does_ is the entry's use, compressed from its "when" line into a statement.
-   - Length: 33 to 148 characters, the range of the built-in tips (Claude Code 2.1.316); aim for 60 to 130.
-   - Skip an entry that has nothing to type in Claude Code: no command and no key combination, or a tool that
-     works only elsewhere (for example only in the Claude app). Note each skipped slug and the reason.
+2. **Build one tip per entry**, shaped `<launch> — <description>`:
+   - _launch_ is what the user types or presses, taken from the entry's run line: a slash command or a key
+     combination, bare, without placeholder arguments (`/teach`, `/doctor prompt-audit`). A skill without a
+     command of its own launches by its bare name, `/<skill>`: Claude Code runs a plugin skill by its bare name
+     unless another command already has it.
+   - _description_ is the entry's index line after `<slug>: `, copied verbatim. The index line is the single
+     source of the wording: to change a tip, the user edits the index line.
+   - Claude Code accepts a tip of up to 500 characters; report any tip over that limit and its slug.
+   - Skip an entry that has nothing to type or press: no command and no key combination, or a tool that works
+     only outside Claude Code (for example only in the Claude app). Note each skipped slug and the reason.
 3. **Show** the tips as a numbered list with their length in characters, then the skipped slugs, then the change
    to settings: the catalog tips replaced, the user's own tips kept, the built-in tips turned off (Claude Code's
    plugin suggestions among them). Point out any of the user's own entries that launch the same command as a new

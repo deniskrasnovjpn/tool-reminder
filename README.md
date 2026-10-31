@@ -67,8 +67,8 @@ Entries are written in the language you are talking to Claude in.
 
 ## Spinner tips
 
-`/tool-reminder:tips` writes one short tip per catalog entry, such as `/teach — a course on a new topic over several
-sessions`, and shows you the list. Once you approve it, the tips go into `spinnerTipsOverride` in
+`/tool-reminder:tips` makes one tip per catalog entry from its command and its index line, such as
+`/teach — <the index line of teach>`, and shows you the list. To change a tip, edit the index line. Once you approve it, the tips go into `spinnerTipsOverride` in
 `~/.claude/settings.json`, and Claude Code shows them while it works, in place of its own tips.
 
 Entries with nothing to type in Claude Code, such as tools that only work in the Claude app, get no tip. Tips you
